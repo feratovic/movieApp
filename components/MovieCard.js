@@ -1,3 +1,3 @@
-export default function MovieCard({src, alt}) {
-  return <div>Card</div>;
+export default function MovieCard() {
+  return <div>Movie Card</div>;
 }
