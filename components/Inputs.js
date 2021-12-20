@@ -20,7 +20,6 @@ export const CustomDropdown = ({
         <Select
           defaultValue={value}
           value={value}
-          isMulti
           name={name}
           options={options}
           onChange={(e) => onChange(e, name)}
