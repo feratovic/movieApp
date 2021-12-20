@@ -1,0 +1,150 @@
+@import '_configs';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.blur-background {
+  filter: blur(2px) !important;
+  -webkit-filter: blur(2px) !important;
+}
+
+.react-select__control {
+  background-color: $secondary-color !important;
+  margin-top: 10px !important;
+}
+
+.react-select__control--menu-is-open {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.react-select__placeholder {
+  margin-left: 10px !important;
+}
+
+.react-select__input-container {
+  color: white !important;
+  margin-left: 10px !important;
+}
+
+.react-select__single-value {
+  color: white !important ;
+}
+
+.react-select__multi-value {
+  background-color: $component-color-yellow !important;
+}
+
+.react-select__multi-value__label {
+  background-color: $component-color-yellow !important;
+  color: black !important;
+}
+
+.react-select__multi-value__remove {
+  background-color: black !important;
+  color: white !important;
+  cursor: pointer;
+}
+
+.react-select__menu {
+  background-color: $secondary-color !important;
+  margin: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border: 1px solid $component-color !important;
+  padding: 0 !important;
+  max-height: 200px !important;
+}
+
+.react-select__menu-list {
+  margin: 0px !important;
+  padding: 0 !important;
+  max-height: 200px !important;
+}
+.react-select__option {
+  border-top: 1px solid $component-color !important;
+  padding-left: 20px !important;
+}
+
+.react-select__option:first-child {
+  border-top: none !important;
+}
+.react-select__option:last-child {
+  border-bottom-right-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
+}
+
+.react-select__menu-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+.react-select__menu-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px $primary-color !important;
+  border-radius: 10px !important;
+}
+
+.react-select__menu-list::-webkit-scrollbar-thumb {
+  background-color: $component-color-yellow !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: inset 0 0 6px $primary-color !important;
+}
+
+.primary-btn {
+  padding: 10px 20px;
+  color: $secondary-color;
+  background-color: $component-color-yellow;
+  border: 1px solid $component-color-yellow;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.primary-btn:hover {
+  background-color: transparent;
+  color: $component-color-yellow;
+}
+
+.secondary-btn {
+  padding: 10px 40px;
+  color: $component-color-yellow;
+  background-color: $primary-color;
+  border: 1px solid $component-color-yellow;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.secondary-btn:hover {
+  background-color: $component-color-yellow;
+  color: $primary-color;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+}

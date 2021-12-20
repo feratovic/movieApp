@@ -1,0 +1,48 @@
+@use 'sass:map';
+@use 'sass:string';
+
+$black: #000000;
+$primary-color: #131313;
+$secondary-color: #202020;
+$component-color: #bdbdbd;
+$component-color-yellow: #f9cc01;
+
+$break-points: (
+  mobile: 480px,
+  tablet: 720px,
+  desktopS: 960px,
+  desktop: 1240px,
+  desktopHD: 1920px,
+);
+
+/** Helper to build @media query. Use named arguments only! */
+@mixin breakpoint-range($mode: screen, $from: false, $to: false, $extra: ()) {
+  /** Checking arguments consistency */
+  @each $key in ($from, $to) {
+    @if $key and not map.has-key($break-points, $key) {
+      @error "Available values for ($from, $to) args are: #{map.keys($break-points)}";
+    }
+  }
+
+  /** Accumulator */
+  $conditions: $mode;
+
+  /** Combining breakpoints dependencies */
+  @each $key, $value in (min-width: $from, max-width: $to) {
+    @if $value {
+      $modifier: if($key == 'max-width', -1px, 0px);
+      $condition: ' and (#{$key}: #{map.get($break-points, $value) - $modifier})';
+      $conditions: string.insert($conditions, $condition, -1);
+    }
+  }
+
+  /** Combining rest dependencies */
+  @each $key, $value in $extra {
+    $condition: ' and (#{$key}: #{$value})';
+  }
+
+  /** Building final media query */
+  @media #{$conditions} {
+    @content;
+  }
+}

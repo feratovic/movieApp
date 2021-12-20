@@ -1,0 +1,40 @@
+{
+    "genres": [
+        {"value": "1", "label" : "Action" },
+        {"value": "2", "label" : "Adventure" },
+        {"value": "3", "label" : "Animation" },
+        {"value": "4", "label" : "Biography" },
+        {"value": "5", "label" : "Comedy" },
+        {"value": "6", "label" : "Crime" },
+        {"value": "7", "label" : "Documentary" },
+        {"value": "8", "label" : "Drama" },
+        {"value": "9", "label" : "Family" },
+        {"value": "10", "label" : "Fantasy" },
+        {"value": "11", "label" : "Film Noir" },
+        {"value": "12", "label" : "History"	 },
+        {"value": "13", "label" : "Horror" },
+        {"value": "14", "label" : "Music" },
+        {"value": "15", "label" : "Musical"}, 
+        {"value": "16", "label" : "Mystery" },
+        {"value": "17", "label" : "Romance" },
+        {"value": "18", "label" : "Sci-Fi" },
+        {"value": "19", "label" : "Short Film" },
+        {"value": "20", "label" : "Sport" },
+        {"value": "21", "label" : "Superhero" },
+        {"value": "22", "label" : "Thriller" },
+        {"value": "23", "label" : "War" },
+        {"value": "24", "label" : "Western" }
+    ],
+    "moods":[
+        {"value": "1", "label" : "Excited" },
+        {"value": "2", "label" : "Sad" },
+        {"value": "3", "label" : "Angry" },
+        {"value": "4", "label" : "Sick" },
+        {"value": "5", "label" : "Surprised" },
+        {"value": "6", "label" : "Happy" },
+        {"value": "7", "label" : "Unhappy" },
+        {"value": "7", "label" : "Bored" }
+    ]
+}
+   
+ 
