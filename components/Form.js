@@ -10,15 +10,16 @@ import {PublicContext} from '../context';
 export default function Form() {
   const [values, setValues] = useState({
     genre: [],
-    year: [],
+    year: '',
     rating: '',
     mood: '',
   });
 
-  const {setForm} = useContext(PublicContext);
+  const {setForm, callMovieApi} = useContext(PublicContext);
 
   const handleSubmit = (e) => {
     setForm({...values, submit: true});
+    callMovieApi({...values, submit: true});
   };
 
   const handleLucky = (e) => {};
@@ -34,8 +35,6 @@ export default function Form() {
       rating: '',
       mood: '',
     };
-
-    setValues(temp);
   };
 
   return (
@@ -61,7 +60,7 @@ export default function Form() {
         options={get100Years()}
         name="year"
         classNamePrefix="react-select"
-        isMulti={true}
+        isMulti={false}
       />
 
       <div id={styles.form_block}>
