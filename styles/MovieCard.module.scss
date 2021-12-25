@@ -1,0 +1,56 @@
+@import '_configs';
+
+.movie_container {
+  background-color: $primary-color;
+  width: 80%;
+  min-height: 400px;
+  position: relative;
+  border-radius: 3px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  .image_container {
+    position: relative;
+    width: 25%;
+    height: 80%;
+    margin: 5%;
+  }
+
+  .content_container {
+    color: white;
+    width: 70%;
+    margin-top: 2%;
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 40%;
+
+      div {
+        width: 50%;
+        margin-bottom: 10px;
+
+        span {
+          font-size: 12px;
+          font-weight: bold;
+          color: $component-color;
+        }
+      }
+    }
+
+    p {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      max-width: 92%;
+    }
+
+    button {
+      margin: 0px 25px 0px 0px;
+    }
+  }
+}

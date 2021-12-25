@@ -5,5 +5,9 @@ module.exports = {
     DEVELOPMENT_URL: process.env.DEVELOPMENT_URL,
     PRODUCTION_URL: process.env.PRODUCTION_URL,
     API_URL: process.env.API_URL,
+    IMAGE_API: process.env.IMAGE_API,
+  },
+  images: {
+    domains: ['image.tmdb.org'],
   },
 };

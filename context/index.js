@@ -14,22 +14,29 @@ function PublicContextProvider(props) {
     submit: false,
   });
 
+  const [page, setPage] = useState(undefined);
+
   const [movie, setMovie] = useState(undefined);
 
   const callMovieApi = (data) => {
-    console.log(mdbApi(), data);
     let temp = '';
+
     if (data.genre && data.genre.length > 0)
       temp += `with_genres=${data.genre[0].value}&`;
     if (data.rating) temp += `vote_average.gte=${data.rating.value}&`;
     //if (data.mood) temp += data.mood.value;
     if (data.year) temp += `year=${data.year.value}&`;
 
-    temp = `${mdbApi()}${temp}`;
+    temp = `${mdbApi()}${temp}page=${page || page !== 0 ? page : 1}`;
 
     axios.get(temp).then((res) => {
       if (res.status === 200 && res.data.results && res.data.results[0]) {
-        setMovie(res.data.results[0]);
+        const random = Math.random() * (res.data.results.length - 1);
+        const random_page =
+          Math.random() *
+          (res.data.total_pages >= 500 ? 500 : res.data.total_pages - 1);
+        setPage(Math.ceil(random_page));
+        setMovie(res.data.results[Math.ceil(random)]);
       }
     });
   };
@@ -41,6 +48,7 @@ function PublicContextProvider(props) {
         movie,
         callMovieApi: callMovieApi,
         setForm: setForm,
+        setMovie: setMovie,
       }}
     >
       {props.children}

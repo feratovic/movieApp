@@ -6,8 +6,12 @@ export const mdbApi = () => {
   return `${process.env.API_URL}?api_key=${mdbApiKey()}&`;
 };
 
+export const imageApi = () => {
+  return process.env.IMAGE_API;
+};
+
 export const placeholderImage = () => {
-  return '/images/placeholder.png';
+  return '/images/background.png';
 };
 
 export const apiUrl = () => {
