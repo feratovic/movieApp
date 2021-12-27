@@ -17,7 +17,16 @@ export default function Form() {
 
   const {setForm, callMovieApi} = useContext(PublicContext);
 
+  const [message, setMessage] = useState(undefined);
+
   const handleSubmit = (e) => {
+    for (const property in values) {
+      if (!values[property] || values[property].length === 0) {
+        setMessage('Fill at least one field.');
+        return;
+      }
+    }
+
     setForm({...values, submit: true});
     callMovieApi({...values, submit: true});
   };

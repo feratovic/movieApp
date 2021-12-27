@@ -4,15 +4,16 @@
   background-color: $primary-color;
   width: 80%;
   min-height: 400px;
+  height: fit-content;
   position: relative;
   border-radius: 3px;
-
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 
   .image_container {
     position: relative;
+    min-height: 300px;
     width: 25%;
     height: 80%;
     margin: 5%;
