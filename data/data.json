@@ -78,14 +78,14 @@
             }
     ],
     "moods":[
-        {"value": "1", "label" : "Excited" },
-        {"value": "2", "label" : "Sad" },
-        {"value": "3", "label" : "Angry" },
-        {"value": "4", "label" : "Sick" },
-        {"value": "5", "label" : "Surprised" },
-        {"value": "6", "label" : "Happy" },
-        {"value": "7", "label" : "Unhappy" },
-        {"value": "7", "label" : "Bored" }
+        {"value": "28", "label" : "Excited" },
+        {"value": "35", "label" : "Sad" },
+        {"value": "27", "label" : "Angry" },
+        {"value": "10751", "label" : "Sick" },
+        {"value": "53", "label" : "Surprised" },
+        {"value": "14", "label" : "Happy" },
+        {"value": "10749", "label" : "Unhappy" },
+        {"value": "12", "label" : "Bored" }
     ]
 }
    

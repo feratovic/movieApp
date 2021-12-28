@@ -4,6 +4,7 @@ import {imageApi} from '../data/configs';
 import styles from '../styles/MovieCard.module.scss';
 import {CustomBtn} from './Buttons';
 import ImageProp from './ImageProp';
+import data from '../data/data.json';
 
 export default function MovieCard() {
   const {movie, form, callMovieApi, setForm, setMovie} =
@@ -24,6 +25,19 @@ export default function MovieCard() {
     setMovie(undefined);
   };
 
+  const generateGenre = (movie) => {
+    let string = '';
+
+    movie.genres.forEach((item, index) => {
+      if (movie.genres.length - 1 === index) string += item.name;
+      else string += item.name + ', ';
+    });
+
+    return string !== '' ? string : '/';
+  };
+
+  console.log(movie);
+
   return (
     <div className={styles.movie_container}>
       <div className={styles.image_container}>
@@ -42,22 +56,22 @@ export default function MovieCard() {
           <div>
             <span>GENRE</span>
             <br></br>
-            Action
+            {movie && generateGenre(movie)}
           </div>
           <div>
             <span>YEAR</span>
             <br></br>
-            2088
+            {movie && movie.release_date && movie.release_date.substr(0, 4)}
           </div>
           <div>
             <span>RATING</span>
             <br></br>
-            10
+            {movie && movie.vote_average}
           </div>
           <div>
             <span>DURATION</span>
             <br></br>
-            147 min
+            {movie && movie.runtime !== 0 ? movie.runtime : 0} min
           </div>
         </div>
         <p>{movie && movie.overview}</p>

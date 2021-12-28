@@ -10,6 +10,10 @@ export const imageApi = () => {
   return process.env.IMAGE_API;
 };
 
+export const singleMovieApi = () => {
+  return `https://api.themoviedb.org/3/movie`;
+};
+
 export const placeholderImage = () => {
   return '/images/background.png';
 };

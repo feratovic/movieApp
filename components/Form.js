@@ -28,11 +28,12 @@ export default function Form() {
     }
 
     if (val === 0) {
-      setMessage('Fill at least one field.');
+      setMessage('Fill at least one field or chosee other buttons');
       return;
     } else {
       setForm({...values, submit: true});
       callMovieApi({...values, submit: true});
+      setMessage('');
     }
   };
 
@@ -52,6 +53,7 @@ export default function Form() {
 
     setValues(temp);
     setForm({...temp, submit: false});
+    setMessage('');
   };
 
   return (
@@ -124,6 +126,10 @@ export default function Form() {
         <button className="icon-btn" onClick={(e) => resetValues(e)}>
           <RefreshIcon fill="white" width="20" heigth="20" />
         </button>
+      </div>
+
+      <div id={styles.warning}>
+        <p>{message}</p>
       </div>
     </div>
   );

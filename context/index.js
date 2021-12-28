@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import {mdbApi} from '../data/configs';
+import {mdbApi, mdbApiKey, singleMovieApi} from '../data/configs';
 
 import axios from 'axios';
 
@@ -21,10 +21,18 @@ function PublicContextProvider(props) {
   const callMovieApi = (data) => {
     let temp = '';
 
-    if (data.genre && data.genre.length > 0)
-      temp += `with_genres=${data.genre[0].value}&`;
+    if ((data.genre && data.genre.length > 0) || data.mood) {
+      const movie_genres = [data.mood.value];
+      if (data.genre && data.genre.length > 0) {
+        data.genre.forEach((item) => {
+          movie_genres.push(item.value);
+        });
+      }
+
+      temp += `with_genres=${movie_genres}&`;
+    }
+
     if (data.rating) temp += `vote_average.gte=${data.rating.value}&`;
-    //if (data.mood) temp += data.mood.value;
     if (data.year) temp += `year=${data.year.value}&`;
 
     temp = `${mdbApi()}${temp}page=${page || page !== 0 ? page : 1}`;
@@ -36,10 +44,20 @@ function PublicContextProvider(props) {
           Math.random() *
           (res.data.total_pages >= 500 ? 500 : res.data.total_pages - 1);
         setPage(Math.ceil(random_page));
-        setMovie(res.data.results[Math.ceil(random)]);
+        const temp_movie = res.data.results[Math.ceil(random)];
+
+        const single_url = `${singleMovieApi()}/${
+          temp_movie.id
+        }?api_key=${mdbApiKey()}`;
+
+        axios.get(single_url).then((res) => {
+          setMovie(res.data || {});
+        });
       }
     });
   };
+
+  const luckyBtn = (data) => {};
 
   return (
     <PublicContext.Provider
@@ -49,6 +67,7 @@ function PublicContextProvider(props) {
         callMovieApi: callMovieApi,
         setForm: setForm,
         setMovie: setMovie,
+        luckyBtn: luckyBtn,
       }}
     >
       {props.children}

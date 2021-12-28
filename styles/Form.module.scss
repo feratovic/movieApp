@@ -4,6 +4,7 @@
   background-color: $primary-color;
   color: white;
   padding: 60px;
+  padding-bottom: 40px;
   border-radius: 15px;
 
   -webkit-box-shadow: 2px 4px 46px 6px rgba(0, 0, 0, 0.99);
@@ -50,5 +51,13 @@
       width: 100%;
       margin: 10px 0px;
     }
+  }
+
+  #warning {
+    margin: auto;
+    text-align: center;
+    color: rgb(182, 18, 18);
+    margin-top: 20px;
+    transition: 1s ease;
   }
 }

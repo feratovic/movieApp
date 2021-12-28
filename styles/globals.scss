@@ -118,7 +118,8 @@ a {
 
 .primary-btn:hover {
   background-color: transparent;
-  color: $component-color-yellow;
+  color: white;
+  border-color: white;
 }
 
 .secondary-btn {
@@ -134,8 +135,9 @@ a {
 }
 
 .secondary-btn:hover {
-  background-color: $component-color-yellow;
-  color: $primary-color;
+  background-color: white;
+  border-color: white;
+  color: $secondary-color;
 }
 
 .icon-btn {
