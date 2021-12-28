@@ -9,8 +9,6 @@ export default function MovieCard() {
   const {movie, form, callMovieApi, setForm, setMovie} =
     useContext(PublicContext);
 
-  console.log(movie);
-
   const handleSubmit = (e) => {
     callMovieApi(form);
   };

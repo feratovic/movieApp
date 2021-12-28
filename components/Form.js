@@ -20,15 +20,20 @@ export default function Form() {
   const [message, setMessage] = useState(undefined);
 
   const handleSubmit = (e) => {
+    let val = 4;
     for (const property in values) {
       if (!values[property] || values[property].length === 0) {
-        setMessage('Fill at least one field.');
-        return;
+        val--;
       }
     }
 
-    setForm({...values, submit: true});
-    callMovieApi({...values, submit: true});
+    if (val === 0) {
+      setMessage('Fill at least one field.');
+      return;
+    } else {
+      setForm({...values, submit: true});
+      callMovieApi({...values, submit: true});
+    }
   };
 
   const handleLucky = (e) => {};
@@ -40,10 +45,13 @@ export default function Form() {
   const resetValues = (e) => {
     let temp = {
       genre: [],
-      year: [],
+      year: '',
       rating: '',
       mood: '',
     };
+
+    setValues(temp);
+    setForm({...temp, submit: false});
   };
 
   return (
