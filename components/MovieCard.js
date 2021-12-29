@@ -5,6 +5,7 @@ import styles from '../styles/MovieCard.module.scss';
 import {CustomBtn} from './Buttons';
 import ImageProp from './ImageProp';
 import data from '../data/data.json';
+import {PlayIcon} from './Icons';
 
 export default function MovieCard() {
   const {movie, form, callMovieApi, setForm, setMovie} =
@@ -49,6 +50,9 @@ export default function MovieCard() {
           }
           alt="background image"
         />
+        <div id={styles.play_btn}>
+          <PlayIcon id={styles.play_icon} width={30} />
+        </div>
       </div>
       <div className={styles.content_container}>
         <h1>{movie && movie.original_title}</h1>

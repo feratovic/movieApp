@@ -57,7 +57,24 @@ function PublicContextProvider(props) {
     });
   };
 
-  const luckyBtn = (data) => {};
+  const luckyBtn = (bool) => {
+    const random = Math.random() * 719971;
+    const single_url = `${singleMovieApi()}/${Math.ceil(
+      random
+    )}?api_key=${mdbApiKey()}`;
+
+    axios
+      .get(single_url)
+      .then((res) => {
+        if (!res) {
+          luckyBtn(true);
+        } else {
+          setMovie(res.data || {});
+          setForm({...form, submit: true});
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <PublicContext.Provider

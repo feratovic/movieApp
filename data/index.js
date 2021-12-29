@@ -27,7 +27,3 @@ export const get10Rating = () => {
 
   return temp;
 };
-
-export const getSeason = () => {
-  const date = new Date();
-};

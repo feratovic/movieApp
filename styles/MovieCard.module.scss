@@ -11,12 +11,51 @@
   flex-direction: row;
   align-items: flex-start;
 
+  @include breakpoint-range($to: desktopS) {
+    flex-direction: column;
+  }
+
   .image_container {
     position: relative;
     min-height: 300px;
     width: 25%;
     height: 80%;
     margin: 5%;
+
+    @include breakpoint-range($to: desktopS) {
+      width: 90%;
+      min-height: 200px !important;
+    }
+
+    #play_btn {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 300px;
+      height: 100%;
+      background-color: #36342836;
+      cursor: pointer;
+      display: none;
+
+      @include breakpoint-range($to: desktopS) {
+        min-height: 200px !important;
+      }
+
+      &:hover {
+        #play_icon {
+          transform: scale(1.2);
+        }
+      }
+
+      #play_icon {
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        color: #f9cc01;
+        transition: 0.5s ease;
+      }
+    }
   }
 
   .content_container {
@@ -24,11 +63,23 @@
     width: 70%;
     margin-top: 2%;
 
+    @include breakpoint-range($to: desktopS) {
+      width: 90%;
+      text-align: center;
+      padding: 20px;
+      margin: auto;
+    }
+
     .content {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       width: 40%;
+      flex-direction: row;
+
+      @include breakpoint-range($to: desktopS) {
+        width: 100%;
+      }
 
       div {
         width: 50%;
@@ -52,6 +103,11 @@
 
     button {
       margin: 0px 25px 0px 0px;
+
+      @include breakpoint-range($to: desktopS) {
+        width: 100%;
+        margin: 15px 0px 0px 0px;
+      }
     }
   }
 }

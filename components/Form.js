@@ -15,7 +15,7 @@ export default function Form() {
     mood: '',
   });
 
-  const {setForm, callMovieApi} = useContext(PublicContext);
+  const {setForm, callMovieApi, luckyBtn} = useContext(PublicContext);
 
   const [message, setMessage] = useState(undefined);
 
@@ -37,7 +37,10 @@ export default function Form() {
     }
   };
 
-  const handleLucky = (e) => {};
+  const handleLucky = (e) => {
+    e.preventDefault();
+    luckyBtn(true);
+  };
 
   const handleChange = (e, name) => {
     setValues({...values, [name]: e});
