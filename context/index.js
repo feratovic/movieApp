@@ -35,7 +35,9 @@ function PublicContextProvider(props) {
     if (data.rating) temp += `vote_average.gte=${data.rating.value}&`;
     if (data.year) temp += `year=${data.year.value}&`;
 
-    temp = `${mdbApi()}${temp}page=${page || page !== 0 ? page : 1}`;
+    temp = `${mdbApi()}${temp}page=${
+      page || page !== 0 ? page : 1
+    }&include_adult=false`;
 
     axios.get(temp).then((res) => {
       if (res.status === 200 && res.data.results && res.data.results[0]) {
@@ -57,23 +59,25 @@ function PublicContextProvider(props) {
     });
   };
 
-  const luckyBtn = (bool) => {
+  const luckyBtn = async (bool) => {
     const random = Math.random() * 719971;
     const single_url = `${singleMovieApi()}/${Math.ceil(
       random
     )}?api_key=${mdbApiKey()}`;
 
-    axios
-      .get(single_url)
-      .then((res) => {
-        if (!res) {
-          luckyBtn(true);
-        } else {
-          setMovie(res.data || {});
-          setForm({...form, submit: true});
-        }
-      })
-      .catch((err) => console.log(err));
+    let apiRes = null;
+
+    try {
+      apiRes = await axios.get(single_url);
+      console.log(apiRes);
+
+      if (apiRes && apiRes.data) {
+        setMovie(apiRes.data || {});
+        setForm({...form, submit: true});
+      }
+    } catch (err) {
+      luckyBtn(true);
+    }
   };
 
   return (
